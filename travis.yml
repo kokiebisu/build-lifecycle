@@ -7,3 +7,5 @@ install:
 
 test:
   - npm test
+  - export CODECOV_TOKEN="a849a4be-7a4d-4932-b204-2dae4a99f805"
+  - bash <(curl -s https://codecov.io/bash)
