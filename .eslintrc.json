@@ -1,4 +1,3 @@
 {
-  "extends": "standard",
-  "prettier-eslint.eslintIntegration": true
+  "extends": "standard"
 }
