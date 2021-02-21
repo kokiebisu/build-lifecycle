@@ -14,7 +14,8 @@
     "husky": "4.2.3",
     "lint-staged": "^10.5.4",
     "prettier-eslint": "^12.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "scripts": {
     "start": "node lib/index.js",
