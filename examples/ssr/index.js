@@ -1,12 +1,12 @@
-const React = require('react')
-const { renderToString } = require('react-dom/server')
-const { RandomComponent } = require('lifecycle')
-const express = require('express')
+const React = require('react');
+const { renderToString } = require('react-dom/server');
+const { RandomComponent } = require('lifecycle');
+const express = require('express');
 
-const app = express()
+const app = express();
 
 app.get('*', (req, res) => {
-  const html = renderToString(React.createElement(RandomComponent))
+  const html = renderToString(React.createElement(RandomComponent));
   res.send(`<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -18,9 +18,9 @@ app.get('*', (req, res) => {
   <body>
       ${html}
   </body>
-  </html>`)
-})
+  </html>`);
+});
 
 app.listen(3000, () => {
-  console.log('listening')
-})
+  console.log('listening');
+});
