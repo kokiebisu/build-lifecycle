@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<button
+  className="bg-blue-500"
+>
+  <h1>
+    Another random button
+  </h1>
+</button>
+`;
