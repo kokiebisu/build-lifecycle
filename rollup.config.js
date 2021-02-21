@@ -1,36 +1,44 @@
-import resolve from 'rollup-plugin-node-resolve'
-import babel from 'rollup-plugin-babel'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import { babel } from '@rollup/plugin-babel'
+import { string } from 'rollup-plugin-string'
 
 // Rollup accepts ESModule syntax
 // Rollup recognizes relative path
+const pathName = 'dist/bundle'
+const production = process.env.NODE_ENV === 'production' // Returns true if development
 
 const output = [
   {
-    file: 'dist/bundle.cjs.js',
+    file: `${pathName}.cjs.js`,
     format: 'cjs'
   },
   {
-    file: 'dist/bundle.esm.js',
+    file: `${pathName}.esm.js`,
     format: 'esm'
   },
   {
     name: 'RandomComponent',
-    file: 'dist/bundle.umd.js',
+    file: `${pathName}.umd.js`,
     format: 'umd',
     globals: {
-      react: 'React'
+      react: 'React',
+      'react-dom': 'ReactDOM'
     }
   }
 ]
 
-export default {
+export default async () => ({
   input: 'lib/index.js',
   output,
   plugins: [
-    resolve(),
+    nodeResolve(),
     babel({
       exclude: /node_modules/
+    }),
+    string({
+      include: '**/*.css'
     })
+    // production && (await import('rollup-plugin-terser')).terser(),
   ],
-  external: ['react']
-}
+  external: ['react', 'react-dom']
+})
