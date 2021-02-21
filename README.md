@@ -46,3 +46,7 @@
 ### Peer dependency
 
 - User will get a warning if they don't include the specified package (and version)
+
+### -- --coverage
+
+- Used when you want to pass coverage to jest specifically rather than to the npm script itself
